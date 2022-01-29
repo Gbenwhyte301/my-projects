@@ -1,3 +1,6 @@
+<?php
+   include('session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,14 +48,14 @@
         <div class="container"><a class="navbar-brand" href="#" style="color: rgb(254,254,254);">GIS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="CheckResult.html">Check Result</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/events.php">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/CheckResult.php">Check Result</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/contact.php">Contact</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">About Us</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="admission.html">Admission</a><a class="dropdown-item" href="OurStaff.html">Our Staffs</a><a class="dropdown-item" href="OurValues.html">Our Values</a></div>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="http://localhost/gbenga/admission.php">Admission</a><a class="dropdown-item" href="http://localhost/gbenga/OurStaff.php">Our Staffs</a><a class="dropdown-item" href="http://localhost/gbenga/OurValues.php">Our Values</a></div>
                     </li>
-                </ul><span class="navbar-text actions"> <a class="login" href="login.html">Log In</a><a class="btn btn-light action-button" role="button" href="signup.html">Enroll Now</a></span>
+                </ul><span class="navbar-text actions"> <a class="login" href="http://localhost/gbenga/login.php">Log In <?php echo $login_session; ?></a><a class="btn btn-light action-button" role="button" href="http://localhost/gbenga/signup.php">Enroll Now</a></span>
             </div>
         </div>
     </nav>
@@ -77,7 +80,7 @@
                     <div class="bg-light border rounded border-light pulse animated hero-technology carousel-hero jumbotron py-5 px-4">
                         <h1 class="hero-title">YOU CAN HELP MAKE A DIFFERENCE<br></h1>
                         <p class="hero-subtitle">Since 2018, Goodness International School has endeavored to <br>promote, aid, and encourage enhanced educational opportunities for the <br>students<br></p>
-                        <p><a class="btn btn-primary hero-button plat" role="button" href="signup.html">Enroll Now</a></p>
+                        <p><a class="btn btn-primary hero-button plat" role="button" href="http://localhost/gbenga/signup.php">Enroll Now</a></p>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,37 @@
+
+
+<?php
+include("config.php");
+session_start();
+
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+   // username and password sent from form 
+   
+   $myfullname = mysqli_real_escape_string($db,$_POST['fname']) ;//+ " " + mysqli_real_escape_string($db,$_POST['lname']);
+   $mypassword = mysqli_real_escape_string($db,$_POST['pword']);
+   $myemail= mysqli_real_escape_string($db,$_POST['demail']);
+   $myfirstName = mysqli_real_escape_string($db,$_POST['fname']);
+   
+   $sql = "INSERT into users (`username`,`email`,`password`,`fullname`) values ('$myfirstName','$myemail','$mypassword','$myfullname')";
+   
+   
+   if (mysqli_query($db, $sql)) {
+    echo "New record created successfully";
+    echo "welcome";
+     //  session_register("myusername");
+      $_SESSION['login_user'] = $myemail;
+      
+      header("location: index.php");
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($db);
+  }
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,14 +79,14 @@
         <div class="container"><a class="navbar-brand" href="#" style="color: rgb(254,254,254);">GIS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="CheckResult.html">Check Result</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/events.php">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/CheckResult.php">Check Result</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/contact.php">Contact</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">About Us</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="admission.html">Admission</a><a class="dropdown-item" href="OurStaff.html">Our Staffs</a><a class="dropdown-item" href="OurValues.html">Our Values</a></div>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="http://localhost/gbenga/admission.php">Admission</a><a class="dropdown-item" href="http://localhost/gbenga/OurStaff.php">Our Staffs</a><a class="dropdown-item" href="http://localhost/gbenga/OurValues.php">Our Values</a></div>
                     </li>
-                </ul><span class="navbar-text actions"> <a class="login" href="login.html">Log In</a><a class="btn btn-light action-button" role="button" href="signup.html">Enroll Now</a></span>
+                </ul><span class="navbar-text actions"> <a class="login" href="http://localhost/gbenga/login.php">Log In</a><a class="btn btn-light action-button" role="button" href="http://localhost/gbenga/signup.php">Enroll Now</a></span>
             </div>
         </div>
     </nav>
@@ -61,11 +95,11 @@
             <div class="image-holder"></div>
             <form method="post">
                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
-                <div class="mb-3"><input class="form-control" type="text" placeholder="First Name"></div>
-                <div class="mb-3"><input class="form-control" type="text" placeholder="Last Name"></div>
-                <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                <div class="mb-3"><input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)"></div>
+                <div class="mb-3"><input class="form-control" type="text" name = "fname" placeholder="First Name"></div>
+                <div class="mb-3"><input class="form-control" type="text" name = "lname" placeholder="Last Name"></div>
+                <div class="mb-3"><input class="form-control" type="email" name="demail" placeholder="Email"></div>
+                <div class="mb-3"><input class="form-control" type="password" name="pword" placeholder="Password"></div>
+                <div class="mb-3"><input class="form-control" type="password" name="pwordrepeat" placeholder="Password (repeat)"></div>
                 <div class="container" style="margin-bottom: 31px;">
                     <div class="row">
                         <div class="col-md-6" style="margin-bottom: 10px;">
@@ -79,7 +113,7 @@
                 <div class="mb-3">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
                 </div>
-                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div><a class="already" href="login.html">You already have an account? Login here.</a>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div><a class="already" href="login.php">You already have an account? Login here.</a>
             </form>
         </div>
     </section>
