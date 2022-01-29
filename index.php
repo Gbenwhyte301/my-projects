@@ -48,14 +48,26 @@
         <div class="container"><a class="navbar-brand" href="#" style="color: rgb(254,254,254);">GIS</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/events.php">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/CheckResult.php">Check Result</a></li>
-                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/http://localhost/gbenga/contact.php">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/events.php">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/CheckResult.php">Check Result</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://localhost/gbenga/contact.php">Contact</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">About Us</a>
                         <div class="dropdown-menu"><a class="dropdown-item" href="http://localhost/gbenga/admission.php">Admission</a><a class="dropdown-item" href="http://localhost/gbenga/OurStaff.php">Our Staffs</a><a class="dropdown-item" href="http://localhost/gbenga/OurValues.php">Our Values</a></div>
                     </li>
-                </ul><span class="navbar-text actions"> <a class="login" href="http://localhost/gbenga/login.php">Log In <?php echo $login_session; ?></a><a class="btn btn-light action-button" role="button" href="http://localhost/gbenga/signup.php">Enroll Now</a></span>
+                </ul><span class="navbar-text actions"> 
+                 <?php if(empty($login_session)){
+                    echo "<a class=\"login\" href=\"http://localhost/gbenga/login.php\">Log In";
+                 }
+                
+                else{
+                     echo "<a class=\"login\" href=\"http://localhost/gbenga/logout.php\">Log Out : ";
+                     echo $login_session;
+                }
+                ?>
+
+                
+                </a><a class="btn btn-light action-button" role="button" href="http://localhost/gbenga/signup.php">Enroll Now</a></span>
             </div>
         </div>
     </nav>
