@@ -57,7 +57,19 @@
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">About Us</a>
                         <div class="dropdown-menu"><a class="dropdown-item" href="http://localhost/gbenga/admission.php">Admission</a><a class="dropdown-item" href="http://localhost/gbenga/OurStaff.php">Our Staffs</a><a class="dropdown-item" href="http://localhost/gbenga/OurValues.php">Our Values</a></div>
                     </li>
-                </ul><span class="navbar-text actions"> <a class="login" href="http://localhost/gbenga/login.php">Log In</a><a class="btn btn-light action-button" role="button" href="http://localhost/gbenga/signup.php">Enroll Now</a></span>
+                </ul><span class="navbar-text actions"> 
+                     
+                 <?php if(empty($login_session)){
+                    echo "<a class=\"login\" href=\"http://localhost/gbenga/login.php\">Log In";
+                 }
+                
+                else{
+                     echo "<a class=\"login\" href=\"http://localhost/gbenga/logout.php\">Log Out : ";
+                     echo $login_session;
+                }
+                ?>
+
+                    </a><a class="btn btn-light action-button" role="button" href="http://localhost/gbenga/signup.php">Enroll Now</a></span>
             </div>
         </div>
     </nav>
@@ -96,10 +108,57 @@
                                         <div class="row" style="margin-top: -24px;">
                                             <div class="col-md-12" style="margin-top: 22px;">
                                                     <?php 
-                                                    $checkResult = 1;
-                                                    $overview = 2;
-                                                    if($_SESSION['showuser'] == $checkResult){
-                                                        echo "hello world";
+                                                    $checkResult = 2;
+                                                    $overview = 1;
+
+                                                    if($_SESSION['showuser'] == $overview){
+                                                        echo "<div class=\"row\">
+                                                            <div class=\"col\">
+        
+                                                                <p class=\"labels\"><strong>First Name</strong></p>
+                                                            </div>
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\">A1</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class=\"row\">
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\"><strong>Last Name</strong></p>
+                                                            </div>
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\">A2</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class=\"row\">
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\"><strong>Email</strong></p>
+                                                            </div>
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\">B1</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class=\"row\">
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\"><strong>Average Score</strong></p>
+                                                            </div>
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\">A1</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class=\"row\">
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\"><strong>Recomendation</strong></p>
+                                                            </div>
+                                                            <div class=\"col\">
+                                                                <p class=\"labels\">C2</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class=\"row\">
+                                                            <div class=\"col-md-12\"><a class=\"btn btn-success\" role=\"button\" href=\"editProfile.php\"><i class=\"fas fa-pencil-alt\"></i>&nbsp;Edit</a></div>
+                                                        </div>";
+        
+                                            }
+                                                else if($_SESSION['showuser']  == $checkResult){
                                                 echo "<div class=\"row\">
                                                     <div class=\"col\">
 
@@ -144,10 +203,6 @@
                                                 <div class=\"row\">
                                                     <div class=\"col-md-12\"><a class=\"btn btn-success\" role=\"button\" href=\"editProfile.php\"><i class=\"fas fa-pencil-alt\"></i>&nbsp;Edit</a></div>
                                                 </div>";
-                                            }
-                                                else if($showuser == $overview){
-                                                    echo "hi, u better work";
-                                                    echo "showing overview";
 
                                                 }
                                                 ?>
