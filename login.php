@@ -30,6 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 echo "welcome";
      //  session_register("myusername");
       $_SESSION['login_user'] = $myusername;
+      $_SESSION['showuser'] = 2;
       
       header("location: index.php");
    }else {

@@ -1,3 +1,8 @@
+
+   <?php
+   include('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,10 +71,10 @@
                             </svg></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navcol-1">
                             <ul class="navbar-nav flex-column justify-content-between w-100">
-                                <li class="nav-item" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" title="Overview"><a class="nav-link active" href="#"><i class="fa fa-home me-2 text-info"></i><span class="d-inline-block d-sm-none d-md-inline-block">Overview</span></a></li>
-                                <li class="nav-item" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" title="Properties"><a class="nav-link" href="#"><i class="fas fa-certificate me-2 text-info"></i><span class="d-inline-block d-sm-none d-md-inline-block">Check Result</span></a></li>
+                                <li class="nav-item" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" title="Overview"><a class="nav-link active" href="http://localhost/gbenga/overview.php"><i class="fa fa-home me-2 text-info"></i><span class="d-inline-block d-sm-none d-md-inline-block">Overview</span></a></li>
+                                <li class="nav-item" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" title="Properties"><a class="nav-link" href="http://localhost/gbenga/CheckResult.php"><i class="fas fa-certificate me-2 text-info"></i><span class="d-inline-block d-sm-none d-md-inline-block">Check Result</span></a></li>
                                 <li class="nav-item" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" title="Contacts"><a class="nav-link" href="#"><i class="fa fa-envelope me-2 text-info"></i><span class="d-inline-block d-sm-none d-md-inline-block">Contacts</span></a></li>
-                                <li class="nav-item" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" title="Contacts"><a class="nav-link" href="#"><i class="fa fa-sign-out me-2 text-info"></i><span class="d-inline-block d-sm-none d-md-inline-block">Sign-Out</span></a></li>
+                                <li class="nav-item" data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" title="Contacts"><a class="nav-link" href="http://localhost/gbenga/logout.php"><i class="fa fa-sign-out me-2 text-info"></i><span class="d-inline-block d-sm-none d-md-inline-block">Sign-Out</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,49 +95,62 @@
                                     <div class="card-body info">
                                         <div class="row" style="margin-top: -24px;">
                                             <div class="col-md-12" style="margin-top: 22px;">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p class="labels"><strong>Usuario</strong></p>
+                                                    <?php 
+                                                    $checkResult = 1;
+                                                    $overview = 2;
+                                                    if($_SESSION['showuser'] == $checkResult){
+                                                        echo "hello world";
+                                                echo "<div class=\"row\">
+                                                    <div class=\"col\">
+
+                                                        <p class=\"labels\"><strong>English</strong></p>
                                                     </div>
-                                                    <div class="col">
-                                                        <p class="labels">usuarioPrueba</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p class="labels"><strong>Teléfono</strong></p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="labels">6622971893</p>
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\">A1</p>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p class="labels"><strong>País</strong></p>
+                                                <div class=\"row\">
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\"><strong>Maths</strong></p>
                                                     </div>
-                                                    <div class="col">
-                                                        <p class="labels">México</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p class="labels"><strong>Estado</strong></p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <p class="labels">Sonora</p>
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\">A2</p>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <p class="labels"><strong>Ciudad</strong></p>
+                                                <div class=\"row\">
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\"><strong>Physics</strong></p>
                                                     </div>
-                                                    <div class="col">
-                                                        <p class="labels">Hermosillo</p>
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\">B1</p>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-12"><a class="btn btn-success" role="button" href="editProfile.php"><i class="fas fa-pencil-alt"></i>&nbsp;Edit</a></div>
+                                                <div class=\"row\">
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\"><strong>Chemistry</strong></p>
+                                                    </div>
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\">A1</p>
+                                                    </div>
                                                 </div>
+                                                <div class=\"row\">
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\"><strong>Biology</strong></p>
+                                                    </div>
+                                                    <div class=\"col\">
+                                                        <p class=\"labels\">C2</p>
+                                                    </div>
+                                                </div>
+                                                <div class=\"row\">
+                                                    <div class=\"col-md-12\"><a class=\"btn btn-success\" role=\"button\" href=\"editProfile.php\"><i class=\"fas fa-pencil-alt\"></i>&nbsp;Edit</a></div>
+                                                </div>";
+                                            }
+                                                else if($showuser == $overview){
+                                                    echo "hi, u better work";
+                                                    echo "showing overview";
+
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
