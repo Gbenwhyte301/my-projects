@@ -93,12 +93,29 @@
                 </nav>
             </div>
             <div class="col-12 col-sm-11 col-md-9 bg-light py-3">
-                <h1>Hi, User!</h1>
+                <h1>Hi, <?php 
+                echo $login_session;
+                ?>
+                
+                !</h1>
                 <main class="page" style="min-height: 100%;">
                     <section class="clean-block about-us">
                         <div class="row" style="margin-right: 0px;margin-left: 0px;">
                             <div class="col text-center">
-                                <h2 class="text-info">Nombre Completo</h2>
+                                <h2 class="text-info">
+                            <?php 
+                            $checkResult = 2;
+                            $overview = 1;
+
+                            if($_SESSION['showuser'] == $overview){
+                                echo "Quick Overview";
+                            }
+                            else if($_SESSION['showuser'] == $checkResult){
+                                echo "Result";
+                            }
+
+                                ?>
+                                </h2>
                             </div>
                         </div>
                         <div class="row justify-content-center" style="margin-right: 0px;margin-left: 0px;">
@@ -111,6 +128,8 @@
                                                     $checkResult = 2;
                                                     $overview = 1;
 
+
+
                                                     if($_SESSION['showuser'] == $overview){
                                                         echo "<div class=\"row\">
                                                             <div class=\"col\">
@@ -118,7 +137,7 @@
                                                                 <p class=\"labels\"><strong>First Name</strong></p>
                                                             </div>
                                                             <div class=\"col\">
-                                                                <p class=\"labels\">A1</p>
+                                                                <p class=\"labels\">";echo $login_session; echo"</p>
                                                             </div>
                                                         </div>
                                                         <div class=\"row\">
@@ -126,7 +145,7 @@
                                                                 <p class=\"labels\"><strong>Last Name</strong></p>
                                                             </div>
                                                             <div class=\"col\">
-                                                                <p class=\"labels\">A2</p>
+                                                                <p class=\"labels\">";echo $_SESSION['fname']; echo "</p>
                                                             </div>
                                                         </div>
                                                         <div class=\"row\">
@@ -134,7 +153,7 @@
                                                                 <p class=\"labels\"><strong>Email</strong></p>
                                                             </div>
                                                             <div class=\"col\">
-                                                                <p class=\"labels\">B1</p>
+                                                                <p class=\"labels\">"; echo $_SESSION['login_user']; echo "</p>
                                                             </div>
                                                         </div>
                                                         <div class=\"row\">
@@ -142,7 +161,7 @@
                                                                 <p class=\"labels\"><strong>Average Score</strong></p>
                                                             </div>
                                                             <div class=\"col\">
-                                                                <p class=\"labels\">A1</p>
+                                                                <p class=\"labels\">";echo number_format((float)$_SESSION['averageSore'], 2, '.', ''); echo"</p>
                                                             </div>
                                                         </div>
                                                         <div class=\"row\">
@@ -150,14 +169,12 @@
                                                                 <p class=\"labels\"><strong>Recomendation</strong></p>
                                                             </div>
                                                             <div class=\"col\">
-                                                                <p class=\"labels\">C2</p>
+                                                                <p class=\"labels\">";echo $_SESSION['recomendation'];echo"</p>
                                                             </div>
-                                                        </div>
-                                                        <div class=\"row\">
-                                                            <div class=\"col-md-12\"><a class=\"btn btn-success\" role=\"button\" href=\"editProfile.php\"><i class=\"fas fa-pencil-alt\"></i>&nbsp;Edit</a></div>
                                                         </div>";
         
                                             }
+                                            
                                                 else if($_SESSION['showuser']  == $checkResult){
                                                 echo "<div class=\"row\">
                                                     <div class=\"col\">
@@ -165,7 +182,7 @@
                                                         <p class=\"labels\"><strong>English</strong></p>
                                                     </div>
                                                     <div class=\"col\">
-                                                        <p class=\"labels\">A1</p>
+                                                        <p class=\"labels\">";echo $_SESSION['english'];echo "</p>
                                                     </div>
                                                 </div>
                                                 <div class=\"row\">
@@ -173,7 +190,7 @@
                                                         <p class=\"labels\"><strong>Maths</strong></p>
                                                     </div>
                                                     <div class=\"col\">
-                                                        <p class=\"labels\">A2</p>
+                                                        <p class=\"labels\">";echo $_SESSION['maths'];echo "</p>
                                                     </div>
                                                 </div>
                                                 <div class=\"row\">
@@ -181,7 +198,7 @@
                                                         <p class=\"labels\"><strong>Physics</strong></p>
                                                     </div>
                                                     <div class=\"col\">
-                                                        <p class=\"labels\">B1</p>
+                                                        <p class=\"labels\">";echo $_SESSION['physics'];echo "</p>
                                                     </div>
                                                 </div>
                                                 <div class=\"row\">
@@ -189,7 +206,7 @@
                                                         <p class=\"labels\"><strong>Chemistry</strong></p>
                                                     </div>
                                                     <div class=\"col\">
-                                                        <p class=\"labels\">A1</p>
+                                                        <p class=\"labels\">";echo $_SESSION['chemistry'];echo "</p>
                                                     </div>
                                                 </div>
                                                 <div class=\"row\">
@@ -197,11 +214,8 @@
                                                         <p class=\"labels\"><strong>Biology</strong></p>
                                                     </div>
                                                     <div class=\"col\">
-                                                        <p class=\"labels\">C2</p>
+                                                        <p class=\"labels\">";echo $_SESSION['biology'];echo "</p>
                                                     </div>
-                                                </div>
-                                                <div class=\"row\">
-                                                    <div class=\"col-md-12\"><a class=\"btn btn-success\" role=\"button\" href=\"editProfile.php\"><i class=\"fas fa-pencil-alt\"></i>&nbsp;Edit</a></div>
                                                 </div>";
 
                                                 }

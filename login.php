@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 //    echo $myusername;
    
    
-   $sql = "SELECT id FROM `users` WHERE email = '$myusername' and password = '$mypassword'";
+   $sql = "SELECT * FROM `users` WHERE email = '$myusername' and password = '$mypassword'";
    $result = mysqli_query($db,$sql);
 
    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -25,14 +25,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    $count = mysqli_num_rows($result);
    
    // If result matched $myusername and $mypassword, table row must be 1 row
+
      
    if($count == 1) {
-echo "welcome";
-     //  session_register("myusername");
-      $_SESSION['login_user'] = $myusername;
-      $_SESSION['showuser'] = 2;
+        $_SESSION['fname'] = $row['firstName'];
+        // echo "welcome";
+        //  session_register("myusername");
+        $_SESSION['login_user'] = $myusername;
+        $_SESSION['showuser'] = 2;
       
-      header("location: index.php");
+        header("location: index.php");
    }else {
       $error = "Your Login Name or Password is invalid";
       echo $error;

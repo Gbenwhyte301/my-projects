@@ -8,13 +8,14 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
    // username and password sent from form 
    
-   $myfullname = mysqli_real_escape_string($db,$_POST['fname']) ;//+ " " + mysqli_real_escape_string($db,$_POST['lname']);
+   $mylastname = mysqli_real_escape_string($db,$_POST['lname']) ;//+ " " + mysqli_real_escape_string($db,$_POST['lname']);
    $mypassword = mysqli_real_escape_string($db,$_POST['pword']);
    $myemail= mysqli_real_escape_string($db,$_POST['demail']);
    $myfirstName = mysqli_real_escape_string($db,$_POST['fname']);
    
-   $sql = "INSERT into users (`username`,`email`,`password`,`fullname`) values ('$myfirstName','$myemail','$mypassword','$myfullname')";
    
+   $sql = "INSERT into users (`firstName`,`email`,`password`,`lastname`) values ('$myfirstName','$myemail','$mypassword','$mylastname')";
+//    echo $sql;
    
    if (mysqli_query($db, $sql)) {
     echo "New record created successfully";
